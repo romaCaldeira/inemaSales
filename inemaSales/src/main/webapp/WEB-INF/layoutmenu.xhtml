@@ -1,22 +1,32 @@
-<ui:composition 
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:viewAction action="#{menuController.iniciar}" />
+		</f:metadata>
+	</ui:define>
 
 	<h:form>
 		<p:panelMenu style="width:250px">
 			<p:submenu label="#{msg.TITLE_CADASTROS_BASICOS}">
-				<p:menuitem value="#{msg.LABEL_CLIENTE}" icon="icon-users" />
+				<p:menuitem value="#{msg.LABEL_CLIENTE}" icon="icon-users"
+					disabled="#{menuController.cliente}" />
 				<p:menuitem value="#{msg.LABEL_PRODUTO}" icon="icon-users" />
 				<p:menuitem value="#{msg.LABEL_USUARIO_SISTEMA}" icon="icon-user" />
 			</p:submenu>
-			
-			<p:submenu label="SERVIÇOS" >
-				<p:menuitem value="Realizar Venda" icon="icon-users" disabled="true"/>
+
+			<p:submenu label="SERVIÇOS">
+				<p:menuitem value="Realizar Venda" icon="icon-users"
+					disabled="#{menuController.venda}" />
 			</p:submenu>
-			
-		</p:panelMenu>	
+
+		</p:panelMenu>
 	</h:form>
 
 </ui:composition>
