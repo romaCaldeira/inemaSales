@@ -11,6 +11,8 @@
 		<project.build.sourceEnconding>UTF-8</project.build.sourceEnconding>
 	</properties>
 
+
+
 	<dependencies>
 
 		<!-- MOjarra (Implementação do JSF 2) -->
@@ -28,8 +30,15 @@
 			<version>6.1</version>
 			<scope>compile</scope>
 		</dependency>
-		
-			<!-- CDI -->
+
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.8</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- CDI -->
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
@@ -37,6 +46,14 @@
 			<scope>compile</scope>
 		</dependency>
 
-	</dependencies>
+		<!-- EJB -->
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>ejb-api</artifactId>
+			<version>3.0</version>
+			<scope>provided</scope>
+		</dependency>
 
+
+	</dependencies>
 </project>
