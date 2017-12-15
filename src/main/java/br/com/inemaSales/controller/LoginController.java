@@ -27,6 +27,11 @@ public class LoginController implements Serializable{
 	
 	@PostConstruct
 	public void init(){
+		limparDados();
+	}
+
+	private void limparDados() {
+		this.user = null;
 		this.cpf = null;
 		this.senha = null;
 	}
@@ -43,13 +48,19 @@ public class LoginController implements Serializable{
 			return "index";
 		}
 	}
+	
+	public String sair(){
+		limparDados();
+		
+		return "login";
+	}
 
-//	public Usuario getUser() {
-//		return user;
-//	}
-//	public void setUser(Usuario user) {
-//		this.user = user;
-//	}
+	public Usuario getUser() {
+		return user;
+	}
+	public void setUser(Usuario user) {
+		this.user = user;
+	}
 	public String getCpf() {
 		return cpf;
 	}

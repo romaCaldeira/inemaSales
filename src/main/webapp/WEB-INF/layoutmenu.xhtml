@@ -8,14 +8,13 @@
 
 	<h:form>
 		<p:panelMenu style="width:250px">
-			<p:submenu label="#{msg.TITLE_CADASTROS_BASICOS}">
-				<p:menuitem value="#{msg.LABEL_CLIENTE}" icon="icon-users"
-					disabled="#{menuController.cliente}" />
+			<p:submenu label="#{msg.TITLE_CADASTROS_BASICOS}" rendered="#{loginController.user ne null}">
+				<p:menuitem value="#{msg.LABEL_CLIENTE}" icon="icon-users"/>
 				<p:menuitem value="#{msg.LABEL_PRODUTO}" icon="icon-users" />
 				<p:menuitem value="#{msg.LABEL_USUARIO_SISTEMA}" icon="icon-user" />
 			</p:submenu>
 
-			<p:submenu label="SERVIÇOS">
+			<p:submenu label="SERVIÇOS" rendered="#{loginController.user ne null}">
 				<p:menuitem value="Realizar Venda" icon="icon-users"
 					disabled="#{menuController.venda}" />
 			</p:submenu>
