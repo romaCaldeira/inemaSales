@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="corpo">
+		<title>#{msg.LABEL_LOGIN}</title>
+		<h:form id="formaLogin">
+			<p:growl autoUpdate="true" for="feedBackLogin"/>
+			<p:outputPanel id="panelLogin" style="margin-top:10%;margin-left:35%;">
+<!-- 				<center> -->
+					<h1>#{msg.LABEL_LOGIN}</h1>
+					<p:panelGrid id="panelGridLogin" columns="2">
+						<p:outputLabel id="lbCpf" value="#{msg.LABEL_CPF}:" />
+						<p:inputMask  id="inCpf" value="#{loginController.cpf}" size="30" maxlength="14" mask="999.999.999-99"/>
+
+						<p:outputLabel id="lbSenha" value="#{msg.LABEL_SENHA}:" />
+						<p:password id="insenha" value="#{loginController.senha}" size="30" maxlength="20" />
+
+					</p:panelGrid>
+
+					<p:commandButton id="btLogin" value="#{msg.LABEL_LOGIN}" action="#{loginController.login()}" process="@this, inCpf, insenha" />
+<!-- 					</center> -->
+			</p:outputPanel>
+		</h:form>
+
+
+
+	</ui:define>
+
+</ui:composition>
